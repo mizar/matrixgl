@@ -28,7 +28,7 @@ export class Matrix2x2 implements Matrix {
   constructor(m11: number, m21: number, m12: number, m22: number) {
     this._values = new Float32Array([
       m11, m21,
-      m12, m22
+      m12, m22,
     ]);
   }
 
@@ -60,12 +60,12 @@ export class Matrix3x3 implements Matrix {
   constructor(
     m11: number, m21: number, m31: number,
     m12: number, m22: number, m32: number,
-    m13: number, m23: number, m33: number
+    m13: number, m23: number, m33: number,
   ) {
     this._values = new Float32Array([
       m11, m21, m31,
       m12, m22, m32,
-      m13, m23, m33
+      m13, m23, m33,
     ]);
   }
 
@@ -77,7 +77,7 @@ export class Matrix3x3 implements Matrix {
     return new Matrix3x3(
       1.0, 0.0, 0.0,
       0.0, 1.0, 0.0,
-      0.0, 0.0, 1.0
+      0.0, 0.0, 1.0,
     );
   }
 
@@ -102,13 +102,13 @@ export class Matrix4x4 implements Matrix {
     m11: number, m21: number, m31: number, m41: number,
     m12: number, m22: number, m32: number, m42: number,
     m13: number, m23: number, m33: number, m43: number,
-    m14: number, m24: number, m34: number, m44: number
+    m14: number, m24: number, m34: number, m44: number,
   ) {
     this._values = new Float32Array([
       m11, m21, m31, m41,
       m12, m22, m32, m42,
       m13, m23, m33, m43,
-      m14, m24, m34, m44
+      m14, m24, m34, m44,
     ]);
   }
 
@@ -121,7 +121,7 @@ export class Matrix4x4 implements Matrix {
       1.0, 0.0, 0.0, 0.0,
       0.0, 1.0, 0.0, 0.0,
       0.0, 0.0, 1.0, 0.0,
-      0.0, 0.0, 0.0, 1.0
+      0.0, 0.0, 0.0, 1.0,
     );
   }
 
@@ -137,7 +137,7 @@ export class Matrix4x4 implements Matrix {
       1.0, 0.0, 0.0, 0.0,
       0.0, 1.0, 0.0, 0.0,
       0.0, 0.0, 1.0, 0.0,
-      tx,  ty,  tz,  1.0
+      tx,  ty,  tz,  1.0,
     );
   }
 
@@ -153,7 +153,7 @@ export class Matrix4x4 implements Matrix {
       sx,  0.0, 0.0, 0.0,
       0.0, sy,  0.0, 0.0,
       0.0, 0.0, sz,  0.0,
-      0.0, 0.0, 0.0, 1.0
+      0.0, 0.0, 0.0, 1.0,
     );
   }
 
@@ -170,7 +170,7 @@ export class Matrix4x4 implements Matrix {
       1.0, 0.0,  0.0, 0.0,
       0.0, cos,  sin, 0.0,
       0.0, -sin, cos, 0.0,
-      0.0, 0.0,  0.0, 1.0
+      0.0, 0.0,  0.0, 1.0,
     );
   }
 
@@ -187,7 +187,7 @@ export class Matrix4x4 implements Matrix {
       cos, 0.0, -sin, 0.0,
       0.0, 1.0, 0.0,  0.0,
       sin, 0.0, cos,  0.0,
-      0.0, 0.0, 0.0,  1.0
+      0.0, 0.0, 0.0,  1.0,
     );
   }
 
@@ -204,7 +204,7 @@ export class Matrix4x4 implements Matrix {
       cos,  sin, 0.0, 0.0,
       -sin, cos, 0.0, 0.0,
       0.0,  0.0, 1.0, 0.0,
-      0.0,  0.0, 0.0, 1.0
+      0.0,  0.0, 0.0, 1.0,
     );
   }
 
@@ -235,7 +235,7 @@ export class Matrix4x4 implements Matrix {
       xAxis.x, yAxis.x, zAxis.x, 0.0,
       xAxis.y, yAxis.y, zAxis.y, 0.0,
       xAxis.z, yAxis.z, zAxis.z, 0.0,
-      -cameraPosition.dot(xAxis), -cameraPosition.dot(yAxis), -cameraPosition.dot(zAxis), 1.0
+      -cameraPosition.dot(xAxis), -cameraPosition.dot(yAxis), -cameraPosition.dot(zAxis), 1.0,
     );
   }
 
@@ -253,10 +253,10 @@ export class Matrix4x4 implements Matrix {
     const far: number = argsObject.far;
 
     return new Matrix4x4(
-      2/(right-left),             0.0,                        0.0,                    0.0,
-      0.0,                        2/(top-bottom),             0.0,                    0.0,
-      0.0,                        0.0,                        -2/(far-near),          0.0,
-      -(right+left)/(right-left), -(top+bottom)/(top-bottom), -(far+near)/(far-near), 1.0
+      2 / (right - left),               0.0,                              0.0,                          0.0,
+      0.0,                              2 / (top - bottom),               0.0,                          0.0,
+      0.0,                              0.0,                              -2 / (far - near),            0.0,
+      -(right + left) / (right - left), -(top + bottom) / (top - bottom), -(far + near) / (far - near), 1.0,
     );
   }
 
@@ -274,10 +274,10 @@ export class Matrix4x4 implements Matrix {
     const far: number = argsObject.far;
 
     return new Matrix4x4(
-      2*near/(right-left),       0.0,                       0.0,                    0.0,
-      0.0,                       2*near/(top-bottom),       0.0,                    0.0,
-      (right+left)/(right-left), (top+bottom)/(top-bottom), -(far+near)/(far-near), -1.0,
-      0.0,                       0.0,                       -2*far*near/(far-near),  0.0
+      2 * near / (right - left),       0.0,                             0.0,                             0.0,
+      0.0,                             2 * near / (top - bottom),       0.0,                             0.0,
+      (right + left) / (right - left), (top + bottom) / (top - bottom), -(far + near) / (far - near),   -1.0,
+      0.0,                             0.0,                             -2 * far * near / (far - near),  0.0,
     );
   }
 
@@ -300,8 +300,8 @@ export class Matrix4x4 implements Matrix {
       left,
       right,
       near: argsObject.near,
-      far: argsObject.far
-    })
+      far: argsObject.far,
+    });
   }
 
   /**
@@ -312,65 +312,67 @@ export class Matrix4x4 implements Matrix {
    * @returns {Matrix4x4}
    */
   mulByMatrix4x4(other: Matrix4x4): Matrix4x4 {
-    const m11: number = this._values[0];
-    const m12: number = this._values[4];
-    const m13: number = this._values[8];
-    const m14: number = this._values[12];
-    const m21: number = this._values[1];
-    const m22: number = this._values[5];
-    const m23: number = this._values[9];
-    const m24: number = this._values[13];
-    const m31: number = this._values[2];
-    const m32: number = this._values[6];
-    const m33: number = this._values[10];
-    const m34: number = this._values[14];
-    const m41: number = this._values[3];
-    const m42: number = this._values[7];
-    const m43: number = this._values[11];
-    const m44: number = this._values[15];
+    const m = this._values;
+    const m11: number = m[0];
+    const m21: number = m[1];
+    const m31: number = m[2];
+    const m41: number = m[3];
+    const m12: number = m[4];
+    const m22: number = m[5];
+    const m32: number = m[6];
+    const m42: number = m[7];
+    const m13: number = m[8];
+    const m23: number = m[9];
+    const m33: number = m[10];
+    const m43: number = m[11];
+    const m14: number = m[12];
+    const m24: number = m[13];
+    const m34: number = m[14];
+    const m44: number = m[15];
 
-    const o11: number = other.values[0];
-    const o12: number = other.values[4];
-    const o13: number = other.values[8];
-    const o14: number = other.values[12];
-    const o21: number = other.values[1];
-    const o22: number = other.values[5];
-    const o23: number = other.values[9];
-    const o24: number = other.values[13];
-    const o31: number = other.values[2];
-    const o32: number = other.values[6];
-    const o33: number = other.values[10];
-    const o34: number = other.values[14];
-    const o41: number = other.values[3];
-    const o42: number = other.values[7];
-    const o43: number = other.values[11];
-    const o44: number = other.values[15];
+    const o = other.values;
+    const o11: number = o[0];
+    const o21: number = o[1];
+    const o31: number = o[2];
+    const o41: number = o[3];
+    const o12: number = o[4];
+    const o22: number = o[5];
+    const o32: number = o[6];
+    const o42: number = o[7];
+    const o13: number = o[8];
+    const o23: number = o[9];
+    const o33: number = o[10];
+    const o43: number = o[11];
+    const o14: number = o[12];
+    const o24: number = o[13];
+    const o34: number = o[14];
+    const o44: number = o[15];
 
     const p11: number = (m11 * o11) + (m12 * o21) + (m13 * o31) + (m14 * o41);
-    const p12: number = (m11 * o12) + (m12 * o22) + (m13 * o32) + (m14 * o42);
-    const p13: number = (m11 * o13) + (m12 * o23) + (m13 * o33) + (m14 * o43);
-    const p14: number = (m11 * o14) + (m12 * o24) + (m13 * o34) + (m14 * o44);
-
     const p21: number = (m21 * o11) + (m22 * o21) + (m23 * o31) + (m24 * o41);
-    const p22: number = (m21 * o12) + (m22 * o22) + (m23 * o32) + (m24 * o42);
-    const p23: number = (m21 * o13) + (m22 * o23) + (m23 * o33) + (m24 * o43);
-    const p24: number = (m21 * o14) + (m22 * o24) + (m23 * o34) + (m24 * o44);
-
     const p31: number = (m31 * o11) + (m32 * o21) + (m33 * o31) + (m34 * o41);
-    const p32: number = (m31 * o12) + (m32 * o22) + (m33 * o32) + (m34 * o42);
-    const p33: number = (m31 * o13) + (m32 * o23) + (m33 * o33) + (m34 * o43);
-    const p34: number = (m31 * o14) + (m32 * o24) + (m33 * o34) + (m34 * o44);
-
     const p41: number = (m41 * o11) + (m42 * o21) + (m43 * o31) + (m44 * o41);
+
+    const p12: number = (m11 * o12) + (m12 * o22) + (m13 * o32) + (m14 * o42);
+    const p22: number = (m21 * o12) + (m22 * o22) + (m23 * o32) + (m24 * o42);
+    const p32: number = (m31 * o12) + (m32 * o22) + (m33 * o32) + (m34 * o42);
     const p42: number = (m41 * o12) + (m42 * o22) + (m43 * o32) + (m44 * o42);
+
+    const p13: number = (m11 * o13) + (m12 * o23) + (m13 * o33) + (m14 * o43);
+    const p23: number = (m21 * o13) + (m22 * o23) + (m23 * o33) + (m24 * o43);
+    const p33: number = (m31 * o13) + (m32 * o23) + (m33 * o33) + (m34 * o43);
     const p43: number = (m41 * o13) + (m42 * o23) + (m43 * o33) + (m44 * o43);
+
+    const p14: number = (m11 * o14) + (m12 * o24) + (m13 * o34) + (m14 * o44);
+    const p24: number = (m21 * o14) + (m22 * o24) + (m23 * o34) + (m24 * o44);
+    const p34: number = (m31 * o14) + (m32 * o24) + (m33 * o34) + (m34 * o44);
     const p44: number = (m41 * o14) + (m42 * o24) + (m43 * o34) + (m44 * o44);
 
     return new Matrix4x4(
       p11, p21, p31, p41,
       p12, p22, p32, p42,
       p13, p23, p33, p43,
-      p14, p24, p34, p44
+      p14, p24, p34, p44,
     );
   }
 

@@ -31,7 +31,7 @@ export class Quaternion {
    */
   normalize() : Quaternion {
     const mag = this.magnitude;
-    if(mag === 0) { return this; }
+    if (mag === 0) { return this; }
     const r = 1 / mag;
     return new Quaternion(this.x * r, this.y * r, this.z * r, this.w * r);
   }
@@ -80,7 +80,7 @@ export class Quaternion {
 
     // When the dot product is negative, slerp chooses the longer way.
     // So we should negate the `other` quaternion.
-    if(dotProd < 0) {
+    if (dotProd < 0) {
       dotProd = -dotProd;
       otherQuaternion = other.mulByScalar(-1);
     }
@@ -214,7 +214,7 @@ export class Quaternion {
       m11, m21, m31, m41,
       m12, m22, m32, m42,
       m13, m23, m33, m43,
-      m14, m24, m34, m44
+      m14, m24, m34, m44,
     );
   }
 

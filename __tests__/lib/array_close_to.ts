@@ -8,7 +8,7 @@ function arrayToBeCloseTo(actual: ArrayLike<number>, expected: ArrayLike<number>
   let pass = true;
   pass = actual.length === expected.length;
 
-  if(!pass) {
+  if (!pass) {
     return {
       message: () =>
         `actual length ${actual.length} is different from ${expected.length}`,
@@ -17,31 +17,30 @@ function arrayToBeCloseTo(actual: ArrayLike<number>, expected: ArrayLike<number>
   }
 
   const differentIndexList: number[] = [];
-  for(let i=0; i<actual.length; i++) {
+  for (let i = 0; i < actual.length; i += 1) {
     const diff = Math.abs(actual[i] - expected[i]);
     const elementPass = diff < delta;
     pass = pass && elementPass;
 
-    if(!elementPass) {
+    if (!elementPass) {
       differentIndexList.push(i);
     }
   }
 
-  if(pass) {
+  if (pass) {
     return {
       message: () =>
         `${actual.toString()} is different from ${expected.toString()} at ${differentIndexList}`,
       pass: true,
     };
-  } else {
-    return {
-      message: () =>
-        `${actual.toString()} is different from ${expected.toString()} at ${differentIndexList}`,
-      pass: false,
-    };
   }
+  return {
+    message: () =>
+      `${actual.toString()} is different from ${expected.toString()} at ${differentIndexList}`,
+    pass: false,
+  };
 }
 
 expect.extend({
-  arrayToBeCloseTo
+  arrayToBeCloseTo,
 });

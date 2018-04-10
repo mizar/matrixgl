@@ -63,7 +63,7 @@ const vecSum = vec1.add(vec2);
 const vecDiff = vec1.sub(vec2);
 const vecProd = vec1.mulByScalar(scalar);
 const vecMag = vec1.magnitude;
-``` 
+```
 
 **Note: MatrixGL's API does not modify the original vector/matrix unlike ordinary OpenGL matrix libraries. So you should assign the result to variables**
 
@@ -76,7 +76,7 @@ console.log(mat.values);
 
 Matrices' values are stored in "column major order" which is the default order of WebGL. This means `new Matrix(1, 2, 3, 4);` represents the first row is `[1, 3]` and second row is `[2, 4]`.
 
-If you are bored with enumerating numbers 16 times to create a Matrix4, please use a spread operator. 
+If you are bored with enumerating numbers 16 times to create a Matrix4, please use a spread operator.
 
 ```javascript
 const values = new Array(16);
@@ -189,7 +189,7 @@ const q1 = new Quaternion(1, 2, 3, 4).normalize();
 const q2 = new Quaternion(5, 6, 7, 8).normalize();
 
 // interpolate with t = 0.5.
-// t is from 0.0 to 1.0. 
+// t is from 0.0 to 1.0.
 const interpolated = q1.slerp(q2, 0.5);
 ```
 
@@ -197,7 +197,7 @@ const interpolated = q1.slerp(q2, 0.5);
 
 You can get `Float32Array` from `values` property of vectors, matrices or quaternions.
 
-So if you use MatrixGL with WebGL, just pass the vector's(or matrix's) `values`. 
+So if you use MatrixGL with WebGL, just pass the vector's(or matrix's) `values`.
 
 ```javascript
 // Buffer
