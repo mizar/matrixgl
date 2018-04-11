@@ -28,7 +28,7 @@
     "typedoc": "typedoc ./src --out ./docs --readme README.md && nodetouch ./docs/.nojekyll",
     "test": "jest",
     "webpack": "webpack",
-    "build": "tsc && npm run typedoc && webpack",
+    "build": "tsc && tsc -p tsconfig.es2015.json && npm run typedoc && webpack",
     "lint": "tslint -p ./",
     "lint:fix": "tslint -p ./ --fix"
   },

@@ -36,7 +36,9 @@ export abstract class VectorBase<T extends TypedArrayLike> implements Vector<T> 
   }
 
   get magnitude(): number {
-    const sumSq: number = this._values.reduce((prev: number, current: number) => prev + (current ** 2), 0);
+    // 共用型に関する問題回避のため、 this._values を any 型にキャスト
+    // https://github.com/Microsoft/TypeScript/issues/7294
+    const sumSq: number = (this._values as any).reduce((prev: number, current: number) => prev + (current * current), 0);
     return Math.sqrt(sumSq);
   }
 
