@@ -203,40 +203,47 @@ export class Matrix4x4 {
      * @returns {Matrix4x4}
      */
     mulByMatrix4x4(other) {
+        /*
         const m = this._values;
-        const m11 = m[0];
-        const m21 = m[1];
-        const m31 = m[2];
-        const m41 = m[3];
-        const m12 = m[4];
-        const m22 = m[5];
-        const m32 = m[6];
-        const m42 = m[7];
-        const m13 = m[8];
-        const m23 = m[9];
-        const m33 = m[10];
-        const m43 = m[11];
-        const m14 = m[12];
-        const m24 = m[13];
-        const m34 = m[14];
-        const m44 = m[15];
+        const m11: number = m[0];
+        const m21: number = m[1];
+        const m31: number = m[2];
+        const m41: number = m[3];
+        const m12: number = m[4];
+        const m22: number = m[5];
+        const m32: number = m[6];
+        const m42: number = m[7];
+        const m13: number = m[8];
+        const m23: number = m[9];
+        const m33: number = m[10];
+        const m43: number = m[11];
+        const m14: number = m[12];
+        const m24: number = m[13];
+        const m34: number = m[14];
+        const m44: number = m[15];
+    
         const o = other.values;
-        const o11 = o[0];
-        const o21 = o[1];
-        const o31 = o[2];
-        const o41 = o[3];
-        const o12 = o[4];
-        const o22 = o[5];
-        const o32 = o[6];
-        const o42 = o[7];
-        const o13 = o[8];
-        const o23 = o[9];
-        const o33 = o[10];
-        const o43 = o[11];
-        const o14 = o[12];
-        const o24 = o[13];
-        const o34 = o[14];
-        const o44 = o[15];
+        const o11: number = o[0];
+        const o21: number = o[1];
+        const o31: number = o[2];
+        const o41: number = o[3];
+        const o12: number = o[4];
+        const o22: number = o[5];
+        const o32: number = o[6];
+        const o42: number = o[7];
+        const o13: number = o[8];
+        const o23: number = o[9];
+        const o33: number = o[10];
+        const o43: number = o[11];
+        const o14: number = o[12];
+        const o24: number = o[13];
+        const o34: number = o[14];
+        const o44: number = o[15];
+         */
+        // Destructuring assignment
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+        const [m11, m21, m31, m41, m12, m22, m32, m42, m13, m23, m33, m43, m14, m24, m34, m44,] = this._values;
+        const [o11, o21, o31, o41, o12, o22, o32, o42, o13, o23, o33, o43, o14, o24, o34, o44,] = other.values;
         const p11 = (m11 * o11) + (m12 * o21) + (m13 * o31) + (m14 * o41);
         const p21 = (m21 * o11) + (m22 * o21) + (m23 * o31) + (m24 * o41);
         const p31 = (m31 * o11) + (m32 * o21) + (m33 * o31) + (m34 * o41);

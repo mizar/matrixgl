@@ -312,6 +312,7 @@ export class Matrix4x4 implements Matrix {
    * @returns {Matrix4x4}
    */
   mulByMatrix4x4(other: Matrix4x4): Matrix4x4 {
+    /*
     const m = this._values;
     const m11: number = m[0];
     const m21: number = m[1];
@@ -347,6 +348,21 @@ export class Matrix4x4 implements Matrix {
     const o24: number = o[13];
     const o34: number = o[14];
     const o44: number = o[15];
+     */
+    // Destructuring assignment
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+    const [
+      m11, m21, m31, m41,
+      m12, m22, m32, m42,
+      m13, m23, m33, m43,
+      m14, m24, m34, m44,
+    ] = this._values as any;
+    const [
+      o11, o21, o31, o41,
+      o12, o22, o32, o42,
+      o13, o23, o33, o43,
+      o14, o24, o34, o44,
+    ] = other.values as any;
 
     const p11: number = (m11 * o11) + (m12 * o21) + (m13 * o31) + (m14 * o41);
     const p21: number = (m21 * o11) + (m22 * o21) + (m23 * o31) + (m24 * o41);

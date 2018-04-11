@@ -164,10 +164,15 @@ export class Quaternion {
      * @returns {Matrix4x4}
      */
     toRotationMatrix4() {
+        /*
         const x = this.x;
         const y = this.y;
         const z = this.z;
         const w = this.w;
+         */
+        // Destructuring assignment
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+        const { x, y, z, w } = this;
         const m11 = 1 - 2 * y * y - 2 * z * z;
         const m12 = 2 * x * y - 2 * w * z;
         const m13 = 2 * x * z + 2 * w * y;
