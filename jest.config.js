@@ -2,7 +2,7 @@ module.exports = {
   "transform": {
     "^.+\\.tsx?$": "ts-jest",
   },
-  "testMatch": ['**/__tests__/**/*.test.(ts|js)?(x)'],
+  "testMatch": ["**/__tests__/**/*.test.(ts|js)?(x)"],
   "moduleFileExtensions": [
     "ts",
     "tsx",
@@ -17,10 +17,10 @@ module.exports = {
       "functions": -1,
       "lines": -1,
       "statements": -1,
-    }
+    },
   },
   "collectCoverage": true,
   "collectCoverageFrom": [
     "src/**",
-  ]
+  ],
 };
