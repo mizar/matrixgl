@@ -1,4 +1,4 @@
-import { Float32Vector3 } from './float32vector';
+import { Float32Vector3, Float32Vector4 } from './float32vector';
 /**
  * An interface for matrices;
  */
@@ -42,6 +42,70 @@ export declare class Matrix3x3 implements Matrix {
      * @returns {Matrix3x3}
      */
     static identity(): Matrix3x3;
+    /**
+     * Returns translation matrix.
+     * @param {number} tx
+     * @param {number} ty
+     * @returns {Matrix3x3}
+     */
+    static translation(tx: number, ty: number): Matrix3x3;
+    /**
+     * Returns scaling matrix.
+     * @param {number} sx
+     * @param {number} sy
+     * @returns {Matrix3x3}
+     */
+    static scaling(sx: number, sy: number): Matrix3x3;
+    /**
+     * Returns rotation matrix.
+     * @param {number} radian
+     * @returns {Matrix3x3}
+     */
+    static rotation(radian: number): Matrix3x3;
+    /**
+     * Multiply by `other` vector and returns a vector.
+     * @param {Float32Vector3} other
+     * @returns {Float32Vector3}
+     */
+    mulByVector3(other: Float32Vector3): Float32Vector3;
+    /**
+     * Multiply by `other` matrix and returns a product.
+     *
+     * This method does not mutate the matrix.
+     * @param {Matrix3x3} other
+     * @returns {Matrix3x3}
+     */
+    mulByMatrix3x3(other: Matrix3x3): Matrix3x3;
+    /**
+     * An alias for `mulByMatrix3x3`.
+     * @param {Matrix3x3} other
+     * @returns {Matrix3x3}
+     */
+    mulByMatrix3(other: Matrix3x3): Matrix3x3;
+    /**
+     * Translate the matrix and returns new `Matrix3x3`.
+     *
+     * This method does not mutate the matrix.
+     * @param {number} tx
+     * @param {number} ty
+     * @returns {Matrix4x4}
+     */
+    translate(tx: number, ty: number): Matrix3x3;
+    /**
+     * Scale the matrix and returns new `Matrix3x3`.
+     * @param {number} sx
+     * @param {number} sy
+     * @returns {Matrix3x3}
+     */
+    scale(sx: number, sy: number): Matrix3x3;
+    /**
+     * Rotate the matrix and returns new `Matrix3x3`.
+     *
+     * This method does not mutate the matrix.
+     * @param {number} radian
+     * @returns {Matrix3x3}
+     */
+    rotate(radian: number): Matrix3x3;
     readonly values: Float32Array;
     toString(): string;
 }
@@ -144,6 +208,12 @@ export declare class Matrix4x4 implements Matrix {
         near: number;
         far: number;
     }): Matrix4x4;
+    /**
+     * Multiply by `other` vector and returns a vector.
+     * @param {Float32Vector4} other
+     * @returns {Float32Vector4}
+     */
+    mulByVector4(other: Float32Vector4): Float32Vector4;
     /**
      * Multiply by `other` matrix and returns a product.
      *

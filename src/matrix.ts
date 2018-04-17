@@ -81,6 +81,199 @@ export class Matrix3x3 implements Matrix {
     );
   }
 
+  /**
+   * Returns translation matrix.
+   * @param {number} tx
+   * @param {number} ty
+   * @returns {Matrix3x3}
+   */
+  static translation(tx: number, ty: number): Matrix3x3 {
+    return new Matrix3x3(
+      1.0, 0.0, 0.0,
+      0.0, 1.0, 0.0,
+      tx,  ty,  1.0,
+    );
+  }
+
+  /**
+   * Returns scaling matrix.
+   * @param {number} sx
+   * @param {number} sy
+   * @returns {Matrix3x3}
+   */
+  static scaling(sx: number, sy: number): Matrix3x3 {
+    return new Matrix3x3(
+      sx,  0.0, 0.0,
+      0.0, sy,  0.0,
+      0.0, 0.0, 1.0,
+    );
+  }
+
+  /**
+   * Returns rotation matrix.
+   * @param {number} radian
+   * @returns {Matrix3x3}
+   */
+  static rotation(radian: number): Matrix3x3 {
+    const sin: number = Math.sin(radian);
+    const cos: number = Math.cos(radian);
+
+    return new Matrix3x3(
+      cos,  sin, 0.0,
+      -sin, cos, 0.0,
+      0.0,  0.0, 1.0,
+    );
+  }
+
+  /**
+   * Multiply by `other` vector and returns a vector.
+   * @param {Float32Vector3} other
+   * @returns {Float32Vector3}
+   */
+  mulByVector3(other: Float32Vector3) {
+    /*
+    const m = this._values;
+    const m11: number = m[0];
+    const m21: number = m[1];
+    const m31: number = m[2];
+    const m12: number = m[3];
+    const m22: number = m[4];
+    const m32: number = m[5];
+    const m13: number = m[6];
+    const m23: number = m[7];
+    const m33: number = m[8];
+
+    const o = other.values;
+    const o1: number = o[0];
+    const o2: number = o[1];
+    const o3: number = o[2];
+     */
+    // Destructuring assignment
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+    const [
+      m11, m21, m31,
+      m12, m22, m32,
+      m13, m23, m33,
+    ] = this._values as any;
+    const [
+      o1, o2, o3,
+    ] = other.values as any;
+
+    const p1: number = (m11 * o1) + (m12 * o2) + (m13 * o3);
+    const p2: number = (m21 * o1) + (m22 * o2) + (m23 * o3);
+    const p3: number = (m31 * o1) + (m32 * o2) + (m33 * o3);
+
+    return new Float32Vector3(p1, p2, p3);
+  }
+
+  /**
+   * Multiply by `other` matrix and returns a product.
+   *
+   * This method does not mutate the matrix.
+   * @param {Matrix3x3} other
+   * @returns {Matrix3x3}
+   */
+  mulByMatrix3x3(other: Matrix3x3): Matrix3x3 {
+    /*
+    const m = this._values;
+    const m11: number = m[0];
+    const m21: number = m[1];
+    const m31: number = m[2];
+    const m12: number = m[3];
+    const m22: number = m[4];
+    const m32: number = m[5];
+    const m13: number = m[6];
+    const m23: number = m[7];
+    const m33: number = m[8];
+
+    const o = other.values;
+    const o11: number = o[0];
+    const o21: number = o[1];
+    const o31: number = o[2];
+    const o12: number = o[3];
+    const o22: number = o[4];
+    const o32: number = o[5];
+    const o13: number = o[6];
+    const o23: number = o[7];
+    const o33: number = o[8];
+     */
+    // Destructuring assignment
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+    const [
+      m11, m21, m31,
+      m12, m22, m32,
+      m13, m23, m33,
+    ] = this._values as any;
+    const [
+      o11, o21, o31,
+      o12, o22, o32,
+      o13, o23, o33,
+    ] = other.values as any;
+
+    const p11: number = (m11 * o11) + (m12 * o21) + (m13 * o31);
+    const p21: number = (m21 * o11) + (m22 * o21) + (m23 * o31);
+    const p31: number = (m31 * o11) + (m32 * o21) + (m33 * o31);
+
+    const p12: number = (m11 * o12) + (m12 * o22) + (m13 * o32);
+    const p22: number = (m21 * o12) + (m22 * o22) + (m23 * o32);
+    const p32: number = (m31 * o12) + (m32 * o22) + (m33 * o32);
+
+    const p13: number = (m11 * o13) + (m12 * o23) + (m13 * o33);
+    const p23: number = (m21 * o13) + (m22 * o23) + (m23 * o33);
+    const p33: number = (m31 * o13) + (m32 * o23) + (m33 * o33);
+
+    return new Matrix3x3(
+      p11, p21, p31,
+      p12, p22, p32,
+      p13, p23, p33,
+    );
+  }
+
+  /**
+   * An alias for `mulByMatrix3x3`.
+   * @param {Matrix3x3} other
+   * @returns {Matrix3x3}
+   */
+  mulByMatrix3(other: Matrix3x3): Matrix3x3 {
+    return this.mulByMatrix3x3(other);
+  }
+
+  /**
+   * Translate the matrix and returns new `Matrix3x3`.
+   *
+   * This method does not mutate the matrix.
+   * @param {number} tx
+   * @param {number} ty
+   * @returns {Matrix4x4}
+   */
+  translate(tx: number, ty: number): Matrix3x3 {
+    const t: Matrix3x3 = Matrix3x3.translation(tx, ty);
+    return this.mulByMatrix3x3(t);
+  }
+
+  /**
+   * Scale the matrix and returns new `Matrix3x3`.
+   * @param {number} sx
+   * @param {number} sy
+   * @returns {Matrix3x3}
+   */
+  scale(sx: number, sy: number): Matrix3x3 {
+    const s: Matrix3x3 = Matrix3x3.scaling(sx, sy);
+    return this.mulByMatrix3x3(s);
+  }
+
+  /**
+   * Rotate the matrix and returns new `Matrix3x3`.
+   *
+   * This method does not mutate the matrix.
+   * @param {number} radian
+   * @returns {Matrix3x3}
+   */
+  rotate(radian: number): Matrix3x3 {
+    const r: Matrix3x3 = Matrix3x3.rotation(radian);
+    return this.mulByMatrix3x3(r);
+  }
+
   get values(): Float32Array {
     return this._values;
   }
@@ -302,6 +495,57 @@ export class Matrix4x4 implements Matrix {
       near: argsObject.near,
       far: argsObject.far,
     });
+  }
+
+  /**
+   * Multiply by `other` vector and returns a vector.
+   * @param {Float32Vector4} other
+   * @returns {Float32Vector4}
+   */
+  mulByVector4(other: Float32Vector4): Float32Vector4 {
+    /*
+    const m = this._values;
+    const m11: number = m[0];
+    const m21: number = m[1];
+    const m31: number = m[2];
+    const m41: number = m[3];
+    const m12: number = m[4];
+    const m22: number = m[5];
+    const m32: number = m[6];
+    const m42: number = m[7];
+    const m13: number = m[8];
+    const m23: number = m[9];
+    const m33: number = m[10];
+    const m43: number = m[11];
+    const m14: number = m[12];
+    const m24: number = m[13];
+    const m34: number = m[14];
+    const m44: number = m[15];
+
+    const o = other.values;
+    const o1: number = o[0];
+    const o2: number = o[1];
+    const o3: number = o[2];
+    const o4: number = o[3];
+     */
+    // Destructuring assignment
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+    const [
+      m11, m21, m31, m41,
+      m12, m22, m32, m42,
+      m13, m23, m33, m43,
+      m14, m24, m34, m44,
+    ] = this._values as any;
+    const [
+      o1, o2, o3, o4,
+    ] = other.values as any;
+
+    const p1: number = (m11 * o1) + (m12 * o2) + (m13 * o3) + (m14 * o4);
+    const p2: number = (m21 * o1) + (m22 * o2) + (m23 * o3) + (m24 * o4);
+    const p3: number = (m31 * o1) + (m32 * o2) + (m33 * o3) + (m34 * o4);
+    const p4: number = (m41 * o1) + (m42 * o2) + (m43 * o3) + (m44 * o4);
+
+    return new Float32Vector4(p1, p2, p3, p4);
   }
 
   /**
