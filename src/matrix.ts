@@ -532,7 +532,7 @@ export class Matrix4x4 implements Matrix {
 
   /**
    * Returns a perspective projection matrix.
-   * @param {{fovY: number; aspect: number; near: number; far: number}} argsObject
+   * @param {{fovYRadian: number; aspectRatio: number; near: number; far: number}} argsObject
    * @returns {Matrix4x4}
    */
   static perspective(argsObject: {fovYRadian: number, aspectRatio: number, near: number, far: number}): Matrix4x4 {
