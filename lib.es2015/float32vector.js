@@ -115,6 +115,13 @@ export class Float32Vector3 extends Vector3Base {
     get xy() {
         return new Float32Vector2(this.x, this.y);
     }
+    /**
+     * Returns cartesian xy values of the vector as `Float32Vector2` from homogeneous coordinates.
+     * @returns {Float32Vector2}
+     */
+    get hom2cart() {
+        return new Float32Vector2(this.x / this.z, this.y / this.z);
+    }
 }
 /**
  * A 4-dimensional vector of single-precision float numbers.
@@ -160,6 +167,13 @@ export class Float32Vector4 extends Vector4Base {
      */
     get xyz() {
         return new Float32Vector3(this.x, this.y, this.z);
+    }
+    /**
+     * Returns cartesian xyz values of the vector as `Float32Vector3` from homogeneous coordinates.
+     * @returns {Float32Vector3}
+     */
+    get hom2cart() {
+        return new Float32Vector3(this.x / this.w, this.y / this.w, this.z / this.w);
     }
 }
 /**

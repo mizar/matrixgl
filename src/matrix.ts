@@ -126,35 +126,116 @@ export class Matrix3x3 implements Matrix {
   }
 
   /**
+   * 2D Projective transformation matrix from Square[(0,0),(1,0),(1,1),(0,1)] to ConvexQuadrilateral[(x1,y1),(x2,y2),(x3,y3),(x4,y4)]
+   * example: Matrix3x3.projectiveTransform(x1,y1,x2,y2,x3,y3,x4,y4).mulByVector3(new Float32Vector3(x,y,1)).xyNormalized
+   * @param {number} x1
+   * @param {number} y1
+   * @param {number} x2
+   * @param {number} y2
+   * @param {number} x3
+   * @param {number} y3
+   * @param {number} x4
+   * @param {number} y4
+   * @returns {Matrix3x3}
+   */
+  static projectiveTransform(
+    x1: number, y1: number,
+    x2: number, y2: number,
+    x3: number, y3: number,
+    x4: number, y4: number,
+  ) {
+    const x2d: number = x2 - x1;
+    const y2d: number = y2 - y1;
+    const x3d: number = x3 - x1;
+    const y3d: number = y3 - y1;
+    const x4d: number = x4 - x1;
+    const y4d: number = y4 - y1;
+
+    // must sgn(d123) == sgn(d124) == sgn(d134) == sgn(d234) != 0
+    const d123: number = x2d * y3d - x3d * y2d;
+    const d124: number = x2d * y4d - x4d * y2d;
+    const d134: number = x3d * y4d - x4d * y3d;
+    const d1234: number = d123 + d134;
+    const d234: number = d1234 - d124;
+
+    const a1: number = d134 * x2d;
+    const b1: number = d123 * x4d;
+    const a2: number = d134 * y2d;
+    const b2: number = d123 * y4d;
+    const a0: number = d134 - d234;
+    const b0: number = d123 - d234;
+    const c0: number = d234;
+
+    return new Matrix3x3(
+      x1 * a0 + a1, y1 * a0 + a2, a0,
+      x1 * b0 + b1, y1 * b0 + b2, b0,
+      x1 * c0,      y1 * c0,      c0,
+    );
+  }
+
+  /**
+   * 2D Projective transformation matrix from ConvexQuadrilateral[(x1,y1),(x2,y2),(x3,y3),(x4,y4)] to Square[(0,0),(1,0),(1,1),(0,1)]
+   * example: Matrix3x3.projectiveInvTransform(x1,y1,x2,y2,x3,y3,x4,y4).mulByVector3(new Float32Vector3(x,y,1)).xyNormalized
+   * @param {number} x1
+   * @param {number} y1
+   * @param {number} x2
+   * @param {number} y2
+   * @param {number} x3
+   * @param {number} y3
+   * @param {number} x4
+   * @param {number} y4
+   * @returns {Matrix3x3}
+   */
+  static projectiveInvTransform(
+    x1: number, y1: number,
+    x2: number, y2: number,
+    x3: number, y3: number,
+    x4: number, y4: number,
+  ) {
+    const x2d: number = x2 - x1;
+    const y2d: number = y2 - y1;
+    const x3d: number = x3 - x1;
+    const y3d: number = y3 - y1;
+    const x4d: number = x4 - x1;
+    const y4d: number = y4 - y1;
+
+    // must sgn(d123) == sgn(d124) == sgn(d134) == sgn(d234) != 0
+    const d123: number = x2d * y3d - x3d * y2d;
+    const d124: number = x2d * y4d - x4d * y2d;
+    const d134: number = x3d * y4d - x4d * y3d;
+    const d1234: number = d123 + d134;
+    const d234: number = d1234 - d124;
+    const d11: number = d123 - d124;
+    const d22: number = d134 - d124;
+
+    const a1: number = -d123 * d234 * y4d;
+    const b1: number = d123 * d234 * x4d;
+    const a2: number = d134 * d234 * y2d;
+    const b2: number = -d134 * d234 * x2d;
+    const a0: number = d11 * d123 * y4d + d22 * d134 * y2d;
+    const b0: number = d11 * d123 * x4d + d22 * d134 * x2d;
+    const c0: number = -d123 * d124 * d134;
+
+    return new Matrix3x3(
+      a1, a2, a0,
+      b1, b2, b0,
+      -a1 * x1 - b1 * y1,
+      -a2 * x1 - b2 * y1,
+      -a0 * x1 - b0 * y1 + c0,
+    );
+  }
+
+  /**
    * Multiply by `other` vector and returns a vector.
    * @param {Float32Vector3} other
    * @returns {Float32Vector3}
    */
   mulByVector3(other: Float32Vector3) {
-    /*
-    const m = this._values;
-    const m11: number = m[0];
-    const m21: number = m[1];
-    const m31: number = m[2];
-    const m12: number = m[3];
-    const m22: number = m[4];
-    const m32: number = m[5];
-    const m13: number = m[6];
-    const m23: number = m[7];
-    const m33: number = m[8];
-
-    const o = other.values;
-    const o1: number = o[0];
-    const o2: number = o[1];
-    const o3: number = o[2];
-     */
-    // Destructuring assignment
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
     const [
       m11, m21, m31,
       m12, m22, m32,
       m13, m23, m33,
-    ] = this._values as any;
+    ] = this.values as any;
     const [
       o1, o2, o3,
     ] = other.values as any;
@@ -174,36 +255,11 @@ export class Matrix3x3 implements Matrix {
    * @returns {Matrix3x3}
    */
   mulByMatrix3x3(other: Matrix3x3): Matrix3x3 {
-    /*
-    const m = this._values;
-    const m11: number = m[0];
-    const m21: number = m[1];
-    const m31: number = m[2];
-    const m12: number = m[3];
-    const m22: number = m[4];
-    const m32: number = m[5];
-    const m13: number = m[6];
-    const m23: number = m[7];
-    const m33: number = m[8];
-
-    const o = other.values;
-    const o11: number = o[0];
-    const o21: number = o[1];
-    const o31: number = o[2];
-    const o12: number = o[3];
-    const o22: number = o[4];
-    const o32: number = o[5];
-    const o13: number = o[6];
-    const o23: number = o[7];
-    const o33: number = o[8];
-     */
-    // Destructuring assignment
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
     const [
       m11, m21, m31,
       m12, m22, m32,
       m13, m23, m33,
-    ] = this._values as any;
+    ] = this.values as any;
     const [
       o11, o21, o31,
       o12, o22, o32,
@@ -503,39 +559,12 @@ export class Matrix4x4 implements Matrix {
    * @returns {Float32Vector4}
    */
   mulByVector4(other: Float32Vector4): Float32Vector4 {
-    /*
-    const m = this._values;
-    const m11: number = m[0];
-    const m21: number = m[1];
-    const m31: number = m[2];
-    const m41: number = m[3];
-    const m12: number = m[4];
-    const m22: number = m[5];
-    const m32: number = m[6];
-    const m42: number = m[7];
-    const m13: number = m[8];
-    const m23: number = m[9];
-    const m33: number = m[10];
-    const m43: number = m[11];
-    const m14: number = m[12];
-    const m24: number = m[13];
-    const m34: number = m[14];
-    const m44: number = m[15];
-
-    const o = other.values;
-    const o1: number = o[0];
-    const o2: number = o[1];
-    const o3: number = o[2];
-    const o4: number = o[3];
-     */
-    // Destructuring assignment
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
     const [
       m11, m21, m31, m41,
       m12, m22, m32, m42,
       m13, m23, m33, m43,
       m14, m24, m34, m44,
-    ] = this._values as any;
+    ] = this.values as any;
     const [
       o1, o2, o3, o4,
     ] = other.values as any;
@@ -556,51 +585,12 @@ export class Matrix4x4 implements Matrix {
    * @returns {Matrix4x4}
    */
   mulByMatrix4x4(other: Matrix4x4): Matrix4x4 {
-    /*
-    const m = this._values;
-    const m11: number = m[0];
-    const m21: number = m[1];
-    const m31: number = m[2];
-    const m41: number = m[3];
-    const m12: number = m[4];
-    const m22: number = m[5];
-    const m32: number = m[6];
-    const m42: number = m[7];
-    const m13: number = m[8];
-    const m23: number = m[9];
-    const m33: number = m[10];
-    const m43: number = m[11];
-    const m14: number = m[12];
-    const m24: number = m[13];
-    const m34: number = m[14];
-    const m44: number = m[15];
-
-    const o = other.values;
-    const o11: number = o[0];
-    const o21: number = o[1];
-    const o31: number = o[2];
-    const o41: number = o[3];
-    const o12: number = o[4];
-    const o22: number = o[5];
-    const o32: number = o[6];
-    const o42: number = o[7];
-    const o13: number = o[8];
-    const o23: number = o[9];
-    const o33: number = o[10];
-    const o43: number = o[11];
-    const o14: number = o[12];
-    const o24: number = o[13];
-    const o34: number = o[14];
-    const o44: number = o[15];
-     */
-    // Destructuring assignment
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
     const [
       m11, m21, m31, m41,
       m12, m22, m32, m42,
       m13, m23, m33, m43,
       m14, m24, m34, m44,
-    ] = this._values as any;
+    ] = this.values as any;
     const [
       o11, o21, o31, o41,
       o12, o22, o32, o42,

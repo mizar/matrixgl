@@ -126,6 +126,14 @@ export class Float32Vector3 extends Vector3Base<Float32Array> {
   get xy(): Float32Vector2 {
     return new Float32Vector2(this.x, this.y);
   }
+
+  /**
+   * Returns cartesian xy values of the vector as `Float32Vector2` from homogeneous coordinates.
+   * @returns {Float32Vector2}
+   */
+  get hom2cart(): Float32Vector2 {
+    return new Float32Vector2(this.x / this.z, this.y / this.z);
+  }
 }
 
 /**
@@ -176,6 +184,14 @@ export class Float32Vector4 extends Vector4Base<Float32Array> {
    */
   get xyz(): Float32Vector3 {
     return new Float32Vector3(this.x, this.y, this.z);
+  }
+
+  /**
+   * Returns cartesian xyz values of the vector as `Float32Vector3` from homogeneous coordinates.
+   * @returns {Float32Vector3}
+   */
+  get hom2cart(): Float32Vector3 {
+    return new Float32Vector3(this.x / this.w, this.y / this.w, this.z / this.w);
   }
 }
 
