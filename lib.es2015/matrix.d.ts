@@ -64,7 +64,7 @@ export declare class Matrix3x3 implements Matrix {
     static rotation(radian: number): Matrix3x3;
     /**
      * 2D Projective transformation matrix from Square[(0,0),(1,0),(1,1),(0,1)] to ConvexQuadrilateral[(x1,y1),(x2,y2),(x3,y3),(x4,y4)]
-     * example: Matrix3x3.projectiveTransform(x1,y1,x2,y2,x3,y3,x4,y4).mulByVector3(new Float32Vector3(x,y,1)).xyNormalized
+     * example: Matrix3x3.projectiveTransform(x1,y1,x2,y2,x3,y3,x4,y4).mulByVector3(new Float32Vector3(x,y,1)).hom2cart
      * @param {number} x1
      * @param {number} y1
      * @param {number} x2
@@ -78,7 +78,7 @@ export declare class Matrix3x3 implements Matrix {
     static projectiveTransform(x1: number, y1: number, x2: number, y2: number, x3: number, y3: number, x4: number, y4: number): Matrix3x3;
     /**
      * 2D Projective transformation matrix from ConvexQuadrilateral[(x1,y1),(x2,y2),(x3,y3),(x4,y4)] to Square[(0,0),(1,0),(1,1),(0,1)]
-     * example: Matrix3x3.projectiveInvTransform(x1,y1,x2,y2,x3,y3,x4,y4).mulByVector3(new Float32Vector3(x,y,1)).xyNormalized
+     * example: Matrix3x3.projectiveInvTransform(x1,y1,x2,y2,x3,y3,x4,y4).mulByVector3(new Float32Vector3(x,y,1)).hom2cart
      * @param {number} x1
      * @param {number} y1
      * @param {number} x2
