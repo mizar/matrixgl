@@ -116,8 +116,19 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_matrix_.matrix3x3.html#mulbymatrix3" class="tsd-kind-icon">mul<wbr>ByMatrix3</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_matrix_.matrix3x3.html#mulbymatrix3x3" class="tsd-kind-icon">mul<wbr>ByMatrix3x3</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_matrix_.matrix3x3.html#mulbyvector3" class="tsd-kind-icon">mul<wbr>ByVector3</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_matrix_.matrix3x3.html#rotate" class="tsd-kind-icon">rotate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_matrix_.matrix3x3.html#scale" class="tsd-kind-icon">scale</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_matrix_.matrix3x3.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_matrix_.matrix3x3.html#translate" class="tsd-kind-icon">translate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_matrix_.matrix3x3.html#identity" class="tsd-kind-icon">identity</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_matrix_.matrix3x3.html#projectiveinvtransform" class="tsd-kind-icon">projective<wbr>Inv<wbr>Transform</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_matrix_.matrix3x3.html#projectivetransform" class="tsd-kind-icon">projective<wbr>Transform</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_matrix_.matrix3x3.html#rotation" class="tsd-kind-icon">rotation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_matrix_.matrix3x3.html#scaling" class="tsd-kind-icon">scaling</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_matrix_.matrix3x3.html#translation" class="tsd-kind-icon">translation</a></li>
 							</ul>
 						</section>
 					</div>
@@ -135,7 +146,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kotofurumiya/matrixgl/blob/5761475/src/matrix.ts#L58">matrix.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L58">matrix.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -181,7 +192,7 @@
 					<div class="tsd-signature tsd-kind-icon">_values<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Float32Array</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/kotofurumiya/matrixgl/blob/5761475/src/matrix.ts#L58">matrix.ts:58</a></li>
+							<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L58">matrix.ts:58</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -198,7 +209,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kotofurumiya/matrixgl/blob/5761475/src/matrix.ts#L84">matrix.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L333">matrix.ts:333</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Float32Array</span></h4>
@@ -208,6 +219,151 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="mulbymatrix3" class="tsd-anchor"></a>
+					<h3>mul<wbr>ByMatrix3</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">mul<wbr>ByMatrix3<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L293">matrix.ts:293</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>An alias for <code>mulByMatrix3x3</code>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>other: <a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="mulbymatrix3x3" class="tsd-anchor"></a>
+					<h3>mul<wbr>ByMatrix3x3</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">mul<wbr>ByMatrix3x3<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L257">matrix.ts:257</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Multiply by <code>other</code> matrix and returns a product.</p>
+								</div>
+								<p>This method does not mutate the matrix.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>other: <a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="mulbyvector3" class="tsd-anchor"></a>
+					<h3>mul<wbr>ByVector3</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">mul<wbr>ByVector3<span class="tsd-signature-symbol">(</span>other<span class="tsd-signature-symbol">: </span><a href="_float32vector_.float32vector3.html" class="tsd-signature-type">Float32Vector3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_float32vector_.float32vector3.html" class="tsd-signature-type">Float32Vector3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L233">matrix.ts:233</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Multiply by <code>other</code> vector and returns a vector.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>other: <a href="_float32vector_.float32vector3.html" class="tsd-signature-type">Float32Vector3</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_float32vector_.float32vector3.html" class="tsd-signature-type">Float32Vector3</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="rotate" class="tsd-anchor"></a>
+					<h3>rotate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">(</span>radian<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L328">matrix.ts:328</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Rotate the matrix and returns new <code>Matrix3x3</code>.</p>
+								</div>
+								<p>This method does not mutate the matrix.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>radian: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="scale" class="tsd-anchor"></a>
+					<h3>scale</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">(</span>sx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, sy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L316">matrix.ts:316</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Scale the matrix and returns new <code>Matrix3x3</code>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sx: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>sy: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="tostring" class="tsd-anchor"></a>
 					<h3>to<wbr>String</h3>
@@ -219,10 +375,42 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_matrix_.matrix.html">Matrix</a>.<a href="../interfaces/_matrix_.matrix.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/kotofurumiya/matrixgl/blob/5761475/src/matrix.ts#L88">matrix.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L337">matrix.ts:337</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="translate" class="tsd-anchor"></a>
+					<h3>translate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">translate<span class="tsd-signature-symbol">(</span>tx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, ty<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L305">matrix.ts:305</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Translate the matrix and returns new <code>Matrix3x3</code>.</p>
+								</div>
+								<p>This method does not mutate the matrix.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>tx: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>ty: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -236,7 +424,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/kotofurumiya/matrixgl/blob/5761475/src/matrix.ts#L76">matrix.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L76">matrix.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -244,6 +432,196 @@
 									<p>Returns an identity matrix.</p>
 								</div>
 							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="projectiveinvtransform" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> projective<wbr>Inv<wbr>Transform</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">projective<wbr>Inv<wbr>Transform<span class="tsd-signature-symbol">(</span>x1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, x2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, x3<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y3<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, x4<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y4<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L189">matrix.ts:189</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>2D Projective transformation matrix from ConvexQuadrilateral[(x1,y1),(x2,y2),(x3,y3),(x4,y4)] to Square[(0,0),(1,0),(1,1),(0,1)]
+									example: Matrix3x3.projectiveInvTransform(x1,y1,x2,y2,x3,y3,x4,y4).mulByVector3(new Float32Vector3(x,y,1)).hom2cart</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x1: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y1: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>x2: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y2: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>x3: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y3: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>x4: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y4: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="projectivetransform" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> projective<wbr>Transform</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">projective<wbr>Transform<span class="tsd-signature-symbol">(</span>x1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, x2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, x3<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y3<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, x4<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y4<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L141">matrix.ts:141</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>2D Projective transformation matrix from Square[(0,0),(1,0),(1,1),(0,1)] to ConvexQuadrilateral[(x1,y1),(x2,y2),(x3,y3),(x4,y4)]
+									example: Matrix3x3.projectiveTransform(x1,y1,x2,y2,x3,y3,x4,y4).mulByVector3(new Float32Vector3(x,y,1)).hom2cart</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x1: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y1: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>x2: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y2: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>x3: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y3: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>x4: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y4: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="rotation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> rotation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">(</span>radian<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L117">matrix.ts:117</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns rotation matrix.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>radian: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="scaling" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> scaling</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">scaling<span class="tsd-signature-symbol">(</span>sx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, sy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L104">matrix.ts:104</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns scaling matrix.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sx: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>sy: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="translation" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> translation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">translation<span class="tsd-signature-symbol">(</span>tx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, ty<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mizar/matrixgl/blob/74f7764/src/matrix.ts#L90">matrix.ts:90</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns translation matrix.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>tx: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>ty: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_matrix_.matrix3x3.html" class="tsd-signature-type">Matrix3x3</a></h4>
 						</li>
 					</ul>
@@ -293,10 +671,43 @@
 								<a href="_matrix_.matrix3x3.html#values" class="tsd-kind-icon">values</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_matrix_.matrix3x3.html#mulbymatrix3" class="tsd-kind-icon">mul<wbr>ByMatrix3</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_matrix_.matrix3x3.html#mulbymatrix3x3" class="tsd-kind-icon">mul<wbr>ByMatrix3x3</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_matrix_.matrix3x3.html#mulbyvector3" class="tsd-kind-icon">mul<wbr>ByVector3</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_matrix_.matrix3x3.html#rotate" class="tsd-kind-icon">rotate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_matrix_.matrix3x3.html#scale" class="tsd-kind-icon">scale</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_matrix_.matrix3x3.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_matrix_.matrix3x3.html#translate" class="tsd-kind-icon">translate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="_matrix_.matrix3x3.html#identity" class="tsd-kind-icon">identity</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_matrix_.matrix3x3.html#projectiveinvtransform" class="tsd-kind-icon">projective<wbr>Inv<wbr>Transform</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_matrix_.matrix3x3.html#projectivetransform" class="tsd-kind-icon">projective<wbr>Transform</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_matrix_.matrix3x3.html#rotation" class="tsd-kind-icon">rotation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_matrix_.matrix3x3.html#scaling" class="tsd-kind-icon">scaling</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_matrix_.matrix3x3.html#translation" class="tsd-kind-icon">translation</a>
 							</li>
 						</ul>
 					</li>
